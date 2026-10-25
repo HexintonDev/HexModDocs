@@ -45,23 +45,48 @@ methods include `getAddress`, `getAddressSafe`, `readBytes`, `writeBytes`, `read
 | `readPointer(address)` | Read a pointer value |
 
 Expressions may be integer addresses, module expressions such as `game.exe+0x1234`, or pointer
-chains such as `[[game.exe+0x1234]+0x18]+0x30`.
+chains such as `[[game.exe+0x1234]+0x18]+0x30`. Bare numbers are hexadecimal as in Cheat Engine
+(`[[pStaticBase]+F8]+10`). `getAddress` raises a catchable Lua error when an expression cannot be
+resolved; `getAddressSafe` returns `nil`.
 
 ## Typed Memory I/O
 
 | Read | Write |
 | --- | --- |
-| `readBytes(address, count, returnAsTable?)` | `writeBytes(address, ...)` |
+| `readBytes(address, count?, returnAsTable?)` | `writeBytes(address, ...)` -> bytes written |
+| `readByte(address, signed?)` | `writeByte(address, value)` |
 | `readSmallInteger(address, signed?)` | `writeSmallInteger(address, value)` |
 | `readWord(address, signed?)` | `writeWord(address, value)` |
 | `readInteger(address, signed?)` | `writeInteger(address, value)` |
 | `readQword(address)` | `writeQword(address, value)` |
 | `readFloat(address)` | `writeFloat(address, value)` |
 | `readDouble(address)` | `writeDouble(address, value)` |
-| `readString(address, maxLength, wideChar?)` | `writeString(address, text, terminate?, wideChar?)` |
+| `readString(address, maxLength?, wideChar?)` | `writeString(address, text, terminate?, wideChar?)` |
 
-Use the operation whose width and representation match the target value. Memory writes require an
-attached, valid process session.
+Use the operation whose width and representation match the target value.
+
+The global memory functions follow Cheat Engine: a failed read (unresolvable expression, unset
+pointer level, unmapped memory) returns `nil`, a failed write returns `false` and `writeBytes`
+returns `0`. Integer writes truncate a fractional value toward zero. Process-handle methods
+(`game:readInteger(...)`) are engine API and still raise a Lua error on failure.
+
+## Cheat Engine Compatibility
+
+Converted CE `{$lua}` scripts run unchanged in a package environment. Besides the memory semantics
+above, the runtime provides CE's `createTimer(owner, enabled)` / `createTimer(ms, fn, ...)` forms,
+timer `get`/`set` methods with case-insensitive members, `bAnd`/`bOr`/`bXor`/`bNot`/`bShl`/`bShr`,
+the byte-table conversions, `getTickCount`, `print` and `showMessage` (engine log), `enumModules`,
+`getModuleSize`, `getModuleBase` and `speedhack_setSpeed`/`speedhack_getSpeed` (engine game speed).
+Deliberate differences: `writeString`'s third argument is "terminate" (CE: wide), a lone boolean in
+`createTimer(false)` is `Enabled` (CE: owner), and an integer write of a non-number writes nothing.
+The public page "Cheat Engine Lua Compatibility" in the engine wiki has the full table.
+
+Implementation: every Lua-callable binding is pushed through `pushGuardedClosure`
+(`ProcessEngine/src/lua/lua_runtime_impl.hpp`), which converts C++ exceptions into Lua errors so
+`pcall` can catch them; Lua is built as C and a C++ exception would otherwise unwind through
+`lua_pcall`. CE memory functions live in `lua_runtime_memory.cpp`, timers in
+`lua_runtime_timers.cpp` and CE helpers in `lua_runtime_ce_helpers.cpp`; tests in
+`tests/lua_ce_compat_test.cpp`.
 
 ## Scanning and Assembly
 
@@ -81,7 +106,7 @@ Use `??` for a wildcard byte in an AOB pattern. Check scan results before readin
 
 | Function | Purpose |
 | --- | --- |
-| `createTimer(...)` | Create a runtime timer |
+| `createTimer(...)` | Create a timer; callback errors are logged and the timer keeps running (CE) |
 | `sleep(milliseconds)` | Pause the current script |
 | `process` | Attached process main module name |
 | `publishEvent(event, value)` | Publish service state to a declared feed |
