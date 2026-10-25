@@ -100,6 +100,28 @@ Surface code runs in a sandbox. It receives only declared bindings and must use 
 SDK. It must not call the raw WebView bridge, access credentials, or assume unrestricted filesystem,
 network, or native access.
 
+## Toggle with a Value (implementation notes)
+
+Status: current implementation on HexModClient `feature/toggle-with-value` (2026-10-26). The public
+contract and complete example are in the public engine wiki `trainer-controls.md#toggle-with-a-value`.
+
+- Manifest: a `toggle` with `write.valueParameter`, `valueType` `number`/`integer`, `constraints` and
+  `toggleValue { default, control? }`. The desktop compiler (`HostedTrainerViewCompiler.ToggleValue.cs`)
+  fills a missing `constraints.step`, puts `defaultValue` and `variant` (`slider`/`input`) into the
+  compiled presentation, and rejects an on action whose `parameterSchema.required` lists the parameter.
+- State: `HostedTrainerWidget.Value` stays the on/off boolean. The held number is `Setting`, projected
+  as `values[packageId]["<localId>#value"]` (`#` is outside the widget ID alphabet). It survives detach
+  and recompiles of the same package version; Save Mods stores an on toggle as its number.
+- Commands: `true`/`false` turn it on/off (the on action gets the setting, read inside the session
+  transaction); a number changes the setting, re-running the on action only while the toggle is on.
+  Desktop, overlay and phone remote send the same `trainer.runAction` value.
+- Compatibility decision: graceful fallback instead of a minimum app version. Older apps ignore
+  `toggleValue`/`write.valueParameter` and show a plain toggle that calls the on action with `{}`, so
+  packages default the parameter in Lua. The default is not stored in `presentation.defaultValue`
+  because older compilers reject that key on toggles. Older phone pages accept the projection
+  (unknown values keys are ignored; `variant` was already allowed).
+- Tests: Studio/engine-kit `toggle` steps accept an optional numeric `value` on `"enabled": true`.
+
 ## UI Design Rules
 
 Use a toggle for a reversible enable/disable feature, a command button for a one-time action, a
