@@ -1,5 +1,9 @@
 # Lua API Reference
 
+> Historical public edition. The maintained authoring reference is
+> [the current technical wiki](https://hexinton.gitbook.io/hexinton-docs/hexinton-engine-wiki/engine).
+> Use its managed runtime, speed and UE4SS references for current engine behavior.
+
 Status: current public API reference for native ProcessEngine runnables.
 
 Function names are case-sensitive. Bare functions use the command's default process session.
@@ -87,6 +91,10 @@ Implementation: every Lua-callable binding is pushed through `pushGuardedClosure
 `lua_pcall`. CE memory functions live in `lua_runtime_memory.cpp`, timers in
 `lua_runtime_timers.cpp` and CE helpers in `lua_runtime_ce_helpers.cpp`; tests in
 `tests/lua_ce_compat_test.cpp`.
+
+Current [managed lookup](https://hexinton.gitbook.io/hexinton-docs/hexinton-engine-wiki/engine/managed-runtime-api)
+and [game speed](https://hexinton.gitbook.io/hexinton-docs/hexinton-engine-wiki/engine/game-speed-api)
+contracts are maintained in the current wiki. .NET method entry points do not supply a body range.
 
 ## Scanning and Assembly
 

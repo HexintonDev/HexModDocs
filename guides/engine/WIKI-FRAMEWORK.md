@@ -1,5 +1,9 @@
 # HexMod ProcessEngine Wiki Framework
 
+> Historical public edition. The maintained authoring reference is
+> [the current technical wiki](https://hexinton.gitbook.io/hexinton-docs/hexinton-engine-wiki/engine).
+> Use its managed runtime, speed and UE4SS references for current engine behavior.
+
 Status: planning document for the public technical wiki.
 
 This is the first step of the public documentation work. It defines how the public ProcessEngine

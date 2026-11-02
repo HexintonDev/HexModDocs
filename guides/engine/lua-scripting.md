@@ -1,5 +1,9 @@
 # Lua Scripting
 
+> Historical public edition. The maintained authoring reference is
+> [the current technical wiki](https://hexinton.gitbook.io/hexinton-docs/hexinton-engine-wiki/engine).
+> Use its managed runtime, speed and UE4SS references for current engine behavior.
+
 Status: current public technical guide.
 
 Lua is the game-facing scripting runtime. It runs inside the native ProcessEngine and provides

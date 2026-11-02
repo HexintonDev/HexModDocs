@@ -1,5 +1,9 @@
 # Trainer Controls and UI Bindings
 
+> Historical public edition. The maintained authoring reference is
+> [the current technical wiki](https://hexinton.gitbook.io/hexinton-docs/hexinton-engine-wiki/engine).
+> Use its managed runtime, speed and UE4SS references for current engine behavior.
+
 Status: current public technical guide.
 
 Lua functions become usable trainer features through package declarations. The runtime defines the

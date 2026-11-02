@@ -1,5 +1,9 @@
 # Sample: Explicit Process Handles
 
+> Historical public edition. The maintained authoring reference is
+> [the current technical wiki](https://hexinton.gitbook.io/hexinton-docs/hexinton-engine-wiki/engine).
+> Use its managed runtime, speed and UE4SS references for current engine behavior.
+
 Sample ID: `process/explicit-handles`
 
 This sample shows how a command's default process differs from processes opened explicitly by ID.

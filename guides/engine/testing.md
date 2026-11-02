@@ -1,5 +1,9 @@
 # Testing and Failure Handling
 
+> Historical public edition. The maintained authoring reference is
+> [the current technical wiki](https://hexinton.gitbook.io/hexinton-docs/hexinton-engine-wiki/engine).
+> Use its managed runtime, speed and UE4SS references for current engine behavior.
+
 Status: current public technical guide.
 
 Scripts that read or modify another process should be tested against a controlled target before use

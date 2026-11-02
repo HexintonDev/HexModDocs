@@ -1,5 +1,9 @@
 # ProcessEngine Sample Library
 
+> Historical public edition. The maintained authoring reference is
+> [the current technical wiki](https://hexinton.gitbook.io/hexinton-docs/hexinton-engine-wiki/engine).
+> Use its managed runtime, speed and UE4SS references for current engine behavior.
+
 Status: current public sample index.
 
 This library contains small, test-backed examples for one ProcessEngine behavior at a time. It is

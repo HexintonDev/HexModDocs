@@ -1,6 +1,12 @@
 # Hexinton Mod Documentation
 
-Public documentation for Hexinton Mod and the ProcessEngine scripting runtime.
+> Historical public edition. The maintained authoring reference is
+> [the current technical wiki](https://hexinton.gitbook.io/hexinton-docs/hexinton-engine-wiki/engine).
+> Use its managed runtime, speed and UE4SS references for current engine behavior.
+
+This repository preserves an older public edition and pinned examples. Current public docs live
+in [HexintonDev/public-docs](https://github.com/HexintonDev/public-docs); internal architecture
+and build guidance live in the separate `HexintonDev/docs` repository.
 
 ## Start here
 

@@ -1,5 +1,9 @@
 # Package-provided UE4SS runtimes
 
+> Historical public edition. The maintained authoring reference is
+> [the current technical wiki](https://hexinton.gitbook.io/hexinton-docs/hexinton-engine-wiki/engine).
+> Use its managed runtime, speed and UE4SS references for current engine behavior.
+
 Status: implementation guide for package-based custom runtime selection.
 
 The client ships a standard UE4SS distribution. A game that needs a custom build can deliver it

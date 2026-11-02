@@ -1,5 +1,9 @@
 # Hooks and Auto Assembler
 
+> Historical public edition. The maintained authoring reference is
+> [the current technical wiki](https://hexinton.gitbook.io/hexinton-docs/hexinton-engine-wiki/engine).
+> Use its managed runtime, speed and UE4SS references for current engine behavior.
+
 Status: current public technical guide.
 
 Auto Assembler is the action-oriented assembly runtime. The current engine supports allocations,

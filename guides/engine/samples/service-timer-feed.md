@@ -1,5 +1,9 @@
 # Sample: Service Timer Feed
 
+> Historical public edition. The maintained authoring reference is
+> [the current technical wiki](https://hexinton.gitbook.io/hexinton-docs/hexinton-engine-wiki/engine).
+> Use its managed runtime, speed and UE4SS references for current engine behavior.
+
 Sample ID: `service/timer-feed`
 
 This sample demonstrates a service that publishes one initial value and then updates it from a timer.

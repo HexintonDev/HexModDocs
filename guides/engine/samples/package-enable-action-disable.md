@@ -1,5 +1,9 @@
 # Sample: Package Enable, Action, and Disable
 
+> Historical public edition. The maintained authoring reference is
+> [the current technical wiki](https://hexinton.gitbook.io/hexinton-docs/hexinton-engine-wiki/engine).
+> Use its managed runtime, speed and UE4SS references for current engine behavior.
+
 Sample ID: `package/enable-action-disable`
 
 This sample shows the smallest complete package lifecycle with a dependency, a Lua action, symbols,

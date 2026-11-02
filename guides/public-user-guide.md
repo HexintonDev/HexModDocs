@@ -1,5 +1,9 @@
 # Hexinton Mod 用户手册
 
+> Historical public edition. The maintained authoring reference is
+> [the current technical wiki](https://hexinton.gitbook.io/hexinton-docs/hexinton-engine-wiki/engine).
+> Use its managed runtime, speed and UE4SS references for current engine behavior.
+
 状态：当前用户操作指南和基础脚本入门。
 
 本文面向已经安装并能打开 Hexinton Mod 客户端的普通用户，介绍如何选择游戏、启动游戏、连接训练器并使用模组功能，也介绍如何使用 Studio 编写第一个基础脚本。本文不包含源码下载、编译或客户端程序搭建内容。本文包含基础脚本入门；更复杂的模组开发请参考“进一步学习”。

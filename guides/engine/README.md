@@ -1,5 +1,9 @@
 # HexMod ProcessEngine Documentation
 
+> Historical public edition. The maintained authoring reference is
+> [the current technical wiki](https://hexinton.gitbook.io/hexinton-docs/hexinton-engine-wiki/engine).
+> Use its managed runtime, speed and UE4SS references for current engine behavior.
+
 Status: public technical wiki framework and navigation draft.
 
 This section is for script authors, tool integrators, and AI assistants that need to create or
@@ -44,11 +48,11 @@ Read the pages in this order:
 
 ## Sample Library
 
-The sample library is planned as a separate indexed section. Each sample will have a stable ID and
-fixed GitHub source/test URLs so pages can link to examples without duplicating large code blocks.
+The [sample library](samples/README.md) is indexed. Its pinned source/test evidence is historical;
+the maintained wiki contains the current authoring and compatibility guidance.
 
 ## Important Boundary
 
-The native ProcessEngine executes Lua and Auto Assembler runnables. Application JavaScript is a
+The native ProcessEngine executes host Lua, Auto Assembler and UE4SS runnables. Application JavaScript is a
 separate, capability-gated runtime owned by the desktop host. Do not use JavaScript APIs in a native
 Lua runnable.

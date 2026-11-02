@@ -1,5 +1,9 @@
 # Sample: Auto Assembler Allocation Action Pair
 
+> Historical public edition. The maintained authoring reference is
+> [the current technical wiki](https://hexinton.gitbook.io/hexinton-docs/hexinton-engine-wiki/engine).
+> Use its managed runtime, speed and UE4SS references for current engine behavior.
+
 Sample ID: `aa/allocation-action-pair`
 
 This sample demonstrates an Auto Assembler action that allocates a named code cave and a second action
